@@ -2,7 +2,22 @@ import { words } from "@/constants"
 import Image from "next/image"
 import Button from "../Button"
 import HeroExperience from "../HeroModels/HeroExperience"
+import AnimatedCounter from "../AnimatedCounter"
+import { useGSAP } from "@gsap/react"
+import gsap from "gsap"
 const Hero = () => {
+    useGSAP(()  =>{
+        gsap.fromTo('.hero-text h1',{
+            y: 50,
+            opacity:0,
+        },{
+            y:0,
+            opacity:1,
+            duration:1,
+            stagger:0.2,
+            ease: 'power1.inOut'
+        },)
+    })
   return (
     <section id="hero" className="relative overflow-hidden">
         <div className="absolute top-0 left-0 z-10">
@@ -38,11 +53,11 @@ const Hero = () => {
                         </span>
                     </span>
                 </h1>
-                <h1>into real project's</h1>
+                <h1>into real project&rsquo;s</h1>
                 <h1>that Deliver Results</h1>
                 </div>
                 <p className="text-white-50 md:text-xl relative z-10 pointer-events-none">
-                    Hi, I'm Ahmed Bouregba, am a software engineer student you can call me medex 
+                    Hi, I&rsquo;m Ahmed Bouregba, am a software engineer student you can call me medex 
                 </p>
                 <Button text="Contact Me" className="mt-5 md:w-80 md:h-16 h-12 w-60" id="#contact" />
                 </div>
@@ -52,10 +67,10 @@ const Hero = () => {
                 {/* <HeroExperience /> */}
                 <div className="hero-3d-layout">
                 <HeroExperience />
-
                 </div>
             </figure>
         </div>
+        <AnimatedCounter />
     </section>
 
   )
